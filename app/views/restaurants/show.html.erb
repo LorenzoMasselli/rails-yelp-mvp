@@ -1,0 +1,23 @@
+<div class="text-center d-flex flex-column justify-content-center m-5">
+  <div class="">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h2 class="card-header border border-primary rounded mb-3 "><%= @restaurant.name %></h2>
+        <h5 class="card-text"><%= @restaurant.category.capitalize %></h5>
+        <p class="card-text"><%= @restaurant.address %></p>
+        <p class="card-text"><%= @restaurant.phone_number %></p>
+        <%= link_to "Back to restaurants", restaurants_path %>
+      </div>
+    </div>
+  </div>
+
+<div class="text-center w-25">
+  <%= link_to "Add a review", new_restaurant_review_path(@restaurant) %>
+  <div>
+    <ul class="list-group d-flex flex-column text-center">
+      <% @restaurant.reviews.each do |review| %>
+        <li class="list-group-item"><%= review.id %>: <%= review.content %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
